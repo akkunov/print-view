@@ -1,0 +1,8 @@
+.box{
+    width: 50rem;
+    height: 50rem;
+    box-shadow: var(--primary-shadow);
+    background-color: var(--bg-color);
+    padding: 2rem;
+
+}

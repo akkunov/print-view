@@ -19,6 +19,7 @@ export default tseslint.config({
         parser: tseslint.parser,
         parserOptions: {
             // Enable project service for better TypeScript integration
+            project: ['./tsconfig.json'],
             projectService: true,
             tsconfigRootDir: import.meta.dirname,
         },
