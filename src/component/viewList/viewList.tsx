@@ -1,8 +1,3 @@
-export default function ViewList () {
-    return (
-        <>
-
-        </>
-    );
+export default function ViewList() {
+    return <></>;
 }
-
