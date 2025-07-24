@@ -1,0 +1,31 @@
+
+.c_btn{
+    align-items: center;
+    flex-wrap: wrap;
+    text-decoration: none;
+    cursor: pointer;
+}
+.c_btn{
+    border-radius: .4rem;
+    font-family: var(--font-roboto-mono);
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    padding: clamp(0.5rem, 0.8vw + 0.3rem, 0.7rem) clamp(2rem, 5vw, 4rem);
+
+    transition: background-color .2s linear, border-color .2s linear;
+    border: none;
+}
+
+
+.primary{
+    background-color: var(--primary-button-background-color);
+    color: var(--primary-button-text-color);
+}
+.primary:hover{
+    background-color: var(--primary-button-hover-color);
+}
+.primary:active {
+    transform: scale(0.97) ; /* чуть сжимается */
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1) inset; /* легкое углубление */
+}
+

@@ -1,7 +1,8 @@
 import type { ComponentProps, ElementType } from 'react';
 
 type TextOwnProps<E extends ElementType = ElementType> = {
-    children: string;
+    children: React.ReactNode;
+    className?: string;
     as?: E;
 };
 

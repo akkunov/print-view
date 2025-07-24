@@ -1,5 +1,5 @@
 import m from './Upload.module.css';
-import BoxContainer from '../../component/boxContainer/BoxContainer';
+import BoxContainer from '../boxContainer/BoxContainer';
 
 export default function Upload() {
     return (

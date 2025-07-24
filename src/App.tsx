@@ -1,12 +1,14 @@
 import './App.css';
-import Upload from './widget/upload/Upload';
 import Header from './component/header/Header';
+import Upload from './component/upload/Upload';
 
 function App() {
     return (
         <>
             <Header />
-            <Upload />
+            <section>
+                <Upload />
+            </section>
         </>
     );
 }
