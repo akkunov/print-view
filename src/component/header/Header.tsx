@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import s from './Header.module.css';
-import Text from '../text/Text';
 import Logo from '../Logo';
 import Button from '../button/Button';
 import cn from 'classnames';
@@ -13,9 +12,9 @@ export default function Header() {
     return (
         <header className={s.header}>
             <div className={s.headerContent}>
-                <Text as={'a'} className={s.logoLink}>
+                <a className={s.logoLink}>
                     <Logo />
-                </Text>
+                </a>
                 <nav
                     id="nav-list"
                     className={cn(s.nav, {

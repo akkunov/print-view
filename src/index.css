@@ -5,30 +5,34 @@
     font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
-
     --font-roboto-mono: 'Roboto Mono', monospace;
-    --font-size-xs: 12px;
-    --font-size-sm: 14px;
-    --font-size-base: 16px;
-    --font-size-md: 18px;
-    --font-size-lg: 20px;
+
+
+    /* Base Sizes */
+    --font-size-xs: clamp(10px, 2vw, 12px);
+    --font-size-sm: clamp(12px, 2.2vw, 14px);
+    --font-size-base: clamp(14px, 2.5vw, 16px);
+    --font-size-md: clamp(15px, 2.8vw, 18px);
+    --font-size-lg: clamp(16px, 3vw, 20px);
+
+    /* Headings */
+    --font-size-h6: clamp(14px, 2vw, 16px);
+    --font-size-h5: clamp(15px, 2.2vw, 18px);
+    --font-size-h4: clamp(16px, 2.5vw, 20px);
+    --font-size-h3: clamp(18px, 3vw, 24px);
+    --font-size-h2: clamp(22px, 4vw, 32px);
+    --font-size-h1: clamp(28px, 5vw, 40px);
+
+    /* Display / Hero */
+    --font-size-display-sm: clamp(32px, 6vw, 48px);
+    --font-size-display-md: clamp(40px, 7vw, 56px);
+    --font-size-display-lg: clamp(48px, 8vw, 64px);
+    --font-size-display-xl: clamp(56px, 10vw, 72px);
+
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -moz-osx-font-smoothing: grayscale;
 
-    /* Headings */
-    --font-size-h6: 16px;
-    --font-size-h5: 18px;
-    --font-size-h4: 20px;
-    --font-size-h3: 24px;
-    --font-size-h2: 32px;
-    --font-size-h1: 40px;
-
-    /* Display / Hero */
-    --font-size-display-sm: 48px;
-    --font-size-display-md: 56px;
-    --font-size-display-lg: 64px;
-    --font-size-display-xl: 72px;
 }
  /*main colors */
 :root {
@@ -185,48 +189,3 @@ h1 {
     }
 }
 
-@media (max-width: 1024px) {
-    :root {
-        /* Планшеты */
-        --font-size-xs: 11px;
-        --font-size-sm: 13px;
-        --font-size-base: 15px;
-        --font-size-md: 16px;
-        --font-size-lg: 18px;
-
-        --font-size-h6: 15px;
-        --font-size-h5: 16px;
-        --font-size-h4: 18px;
-        --font-size-h3: 20px;
-        --font-size-h2: 26px;
-        --font-size-h1: 32px;
-
-        --font-size-display-sm: 40px;
-        --font-size-display-md: 48px;
-        --font-size-display-lg: 56px;
-        --font-size-display-xl: 64px;
-    }
-}
-
-@media (max-width: 768px) {
-    :root {
-        /* Мобильные */
-        --font-size-xs: 10px;
-        --font-size-sm: 12px;
-        --font-size-base: 14px;
-        --font-size-md: 15px;
-        --font-size-lg: 16px;
-
-        --font-size-h6: 14px;
-        --font-size-h5: 15px;
-        --font-size-h4: 16px;
-        --font-size-h3: 18px;
-        --font-size-h2: 22px;
-        --font-size-h1: 28px;
-
-        --font-size-display-sm: 32px;
-        --font-size-display-md: 40px;
-        --font-size-display-lg: 48px;
-        --font-size-display-xl: 56px;
-    }
-}

@@ -26,6 +26,12 @@
     flex-direction: row;
     column-gap: clamp(1rem, 5vw, 4rem);
 }
+.logoLink{
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
 .nav ul  {
     list-style: none;
 }
