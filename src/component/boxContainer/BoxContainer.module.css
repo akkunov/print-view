@@ -11,44 +11,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     border-radius: 0.6rem;
 }
-.upload{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 2rem;
-    gap: 3rem;
-    box-sizing: border-box;
-    cursor: pointer;
-}
-.uploadText{
-    font-size: var(--font-size-h3);
-    font-family: var(--font-roboto-mono);
-    text-align: center;
-    text-decoration: none;
-    color: var(--link-color);
-    font-weight: 600;
-}
-.selectedFile{
-    width: 90%;
-    padding: 1rem 2rem;
-    background-color: rgba(75, 50, 195, 0.09);
-    border-radius: 0.6rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    user-select: none;
-}
-.selectedFile{
-    text-align: center;
-    font-size: var(--font-size-sm);
-    font-family: var(--font-roboto-mono);
-}
-.selectedFile span{
-    display: flex;
-    align-items: center;
+.dragActive {
+    outline: 2px dashed var(--primary-button-background-color);
+    background-color: rgba(0, 128, 255, 0.05);
 }

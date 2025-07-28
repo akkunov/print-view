@@ -4,117 +4,92 @@ import { useRef, useState } from 'react';
 import DeleteSvg from '../../assets/svg/deleteSvg';
 import DriveSvg from '../../assets/svg/drive';
 import { SendSvg } from '../../assets/svg/sendSvg';
+import { uploadFile } from '../../fetch/FetchUpload';
+import BoxContainer from '../boxContainer/BoxContainer';
+import { isExcelFile } from '../../services/excel.validate';
 
-type Info = {
+type IError = {
+    status?: number | string;
     message: string;
-    rows: [][];
 };
 export default function Upload() {
     const inputRef = useRef<HTMLInputElement | null>(null);
     const [file, setFile] = useState<File | null>(null);
-    const [isDragging, setIsDragging] = useState(false);
-    const [isUploading, setIsUploading] = useState(false);
+    const [isDragging, setIsDragging] = useState<boolean>(false);
+    const [isUploading, setIsUploading] = useState<boolean>(false);
+    const [error, setError] = useState<IError | null>(null);
 
-    const handleUploadClick = () => {
-        inputRef.current?.click();
-    };
+    const handleUploadClick = () => inputRef.current?.click();
 
     const deleteFile = () => {
-        console.log('deleting file');
         setFile(null);
+        setError(null);
     };
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const selectedFile = e.target.files?.[0];
         if (selectedFile && isExcelFile(selectedFile)) {
             setFile(selectedFile);
-            uploadFile(selectedFile).then((result) => {
-                console.log(result);
-            });
+            setError(null);
         }
     };
 
-    const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
-        e.preventDefault();
-        setIsDragging(true);
-    };
-
-    const handleDragLeave = () => {
-        setIsDragging(false);
-    };
-
-    const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
-        e.preventDefault();
-        setIsDragging(false);
-
-        const droppedFile = e.dataTransfer.files?.[0];
-        if (droppedFile && isExcelFile(droppedFile)) {
-            setFile(droppedFile);
-            uploadFile(droppedFile)
-                .then(() => console.log('Файл загружен'))
-                .catch((err) => console.error('Ошибка при загрузке файла', err));
-        }
-    };
-
-    const isExcelFile = (file: File) => {
-        const acceptedTypes = [
-            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-            'application/vnd.ms-excel',
-        ];
-        return acceptedTypes.includes(file.type);
-    };
-
-    const uploadFile = async (file: File): Promise<Info | undefined | null> => {
-        const formData = new FormData();
-        formData.append('file', file);
-        console.log(formData.getAll('file'));
-
-        try {
-            setIsUploading(true);
-
-            const res = await fetch('http://10.2.194.57:3001/api/upload', {
-                method: 'POST',
-                body: formData,
+    const handleDrop = (file: File) => {
+        if (file && isExcelFile(file)) {
+            setFile(file);
+            setError(null);
+        } else {
+            setError({
+                message: 'Неправильный тип файла, пожалуйста выберите файла типа excel',
             });
-
-            if (!res.ok) return null;
-            const json: Info = await res.json();
-            console.log(json);
-            alert(JSON.stringify(json));
-            return json;
-        } catch (error) {
-            console.error('Upload failed:', error);
-            alert('Ошибка при загрузке файла');
-            throw error;
-        } finally {
-            setIsUploading(false);
             setFile(null);
+        }
+    };
+
+    const handleUploadFile = async (file: File | null) => {
+        if (!file) return;
+        setError(null);
+        setIsUploading(true);
+        const res = await uploadFile(file);
+        setIsUploading(false);
+        if (res.success) {
+            setFile(null);
+            const pdfUrl = URL.createObjectURL(res.pdfBlob);
+            window.open(pdfUrl);
+        } else {
+            const { message, status } = res.error;
+            setError({ status, message });
         }
     };
 
     return (
         <div className={s.container}>
-            <div
-                className={`${s.box} ${isDragging ? s.dragActive : ''}`}
-                onDragOver={handleDragOver}
-                onDragLeave={handleDragLeave}
-                onDrop={handleDrop}
+            <BoxContainer
+                isDragging={isDragging}
+                setIsDragging={setIsDragging}
+                getFile={handleDrop}
             >
                 <div className={s.upload} onClick={handleUploadClick}>
                     <a>
                         <DriveSvg />
                     </a>
-                    <span className={s.uploadText}>
-                        {isUploading
-                            ? 'Uploading...'
-                            : isDragging
-                              ? 'Drop file here'
-                              : 'Browse or Drop file to upload'}
+                    <span className={`${s.uploadText} ${error?.message ? s.errorMessage : ''}`}>
+                        {error?.message
+                            ? error.message
+                            : isUploading
+                              ? 'Uploading...'
+                              : isDragging
+                                ? 'Drop file here'
+                                : 'Browse or Drop file to upload'}
                     </span>
                 </div>
 
                 <div className={s.selectedFile} role="button">
-                    <button className={s.transparentButton} type={'button'}>
+                    <button
+                        className={s.transparentButton}
+                        type={'button'}
+                        onClick={() => handleUploadFile(file)}
+                    >
                         <SendSvg />
                     </button>
 
@@ -138,7 +113,7 @@ export default function Upload() {
                     onChange={handleFileChange}
                     style={{ display: 'none' }}
                 />
-            </div>
+            </BoxContainer>
         </div>
     );
 }

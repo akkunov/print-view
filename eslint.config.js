@@ -52,7 +52,7 @@ export default tseslint.config({
             'error',
             {
                 selector: 'variableLike',
-                format: ['camelCase', 'PascalCase'],
+                format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
                 leadingUnderscore: 'allow',
             },
             // 👉 Типы, интерфейсы, enum, классы — PascalCase
