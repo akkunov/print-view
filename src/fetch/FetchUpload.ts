@@ -18,10 +18,8 @@ export const uploadFile = async (file: File): Promise<UploadResult> => {
             body: formData,
         });
 
-        // console.log(await res.json());
-        // const data = await res.json();
-
         if (!res.ok) {
+            const data = await res.json();
             return {
                 success: false,
                 error: { ...data.error },
