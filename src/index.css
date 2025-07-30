@@ -7,7 +7,6 @@
     font-weight: 400;
     --font-roboto-mono: 'Roboto Mono', monospace;
 
-
     /* Base Sizes */
     --font-size-xs: clamp(10px, 2vw, 12px);
     --font-size-sm: clamp(12px, 2.2vw, 14px);
@@ -32,18 +31,14 @@
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -moz-osx-font-smoothing: grayscale;
-
 }
- /*main colors */
+/*main colors */
 :root {
     color-scheme: light dark;
     color: rgba(255, 255, 255, 0.87);
-    background-color: #242424;
-
-
-    --bg-color: #FFFFFF;
+    background-color: var(--body-background-color);
     --dark: #484646;
-    --shadow: 4px 4px 8px 0px rgba(81, 164, 229, 0.2);
+    --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     --primary: rgba(212, 237, 253, 0.2);
     --color-neutral-25: #fcfcfd;
     --color-neutral-50: #f9fafb;
@@ -102,8 +97,7 @@
     --color-rose-900: #89123e;
 }
 /*named colors, usefull */
-:root{
-
+:root {
     --primary-button-background-color: var(--color-primary-800);
     --primary-button-hover-color: var(--color-primary-900);
     --primary-button-text-color: #fff;
@@ -144,7 +138,325 @@
     --rule-status-background-color: var(--color-rose-50);
 }
 
+html[data-theme='light'] {
+    --logo-center-opacity: var(--opacity-100);
+}
+html[data-theme='light'] {
+    --sponsor-img-border-radius: 0;
+    --sponsor-backers-img-border-radius: 50%;
+    --github-logo-filter: invert(0);
+}
+html[data-theme='light'] {
+    --body-background-color: #fff;
+    --body-text-color: var(--color-neutral-500);
+    --code-comments-color: var(--color-neutral-500);
+    --headings-color: var(--color-neutral-900);
+    --border-color: var(--color-neutral-300);
+    --divider-color: var(--color-neutral-200);
+    --icon-color: var(--color-neutral-400);
+    --dark-icon-color: var(--color-neutral-500);
+    --link-color: var(--color-primary-800);
+    --lighter-background-color: var(--color-neutral-100);
+    --lightest-background-color: var(--color-neutral-50);
+    --docs-lightest-background-color: var(--color-primary-50);
+    --hero-background-color: var(--color-neutral-25);
+    --footer-background-color: var(--color-neutral-25);
+    --outline-color: var(--color-brand);
+    --editor-string-color: var(--color-warning-800);
+    --editor-comment-color: var(--color-success-700);
+    --editor-keyword-color: var(--color-primary-900);
+    --editor-name-color: var(--color-primary-700);
+    --editor-bracket-match-outline-color: var(--color-neutral-200);
+    --editor-bracket-match-background-color: var(--color-neutral-100);
+    --editor-bracket-match-color: none;
+    --logo-color: var(--color-primary-800);
+    --logo-center-color: var(--color-primary-600);
+    --label-text-color: var(--color-neutral-700);
+    --code-text-color: var(--color-neutral-900);
+}
+.translated-ltr {
+    direction: ltr;
+    text-align: left;
+}
 
+html[data-theme='dark'] {
+    --logo-center-opacity: var(--opacity-60);
+}
+html[data-theme='dark'] {
+    --sponsor-img-border-radius: var(--border-radius);
+    --sponsor-backers-img-border-radius: var(--border-radius);
+    --github-logo-filter: invert(100%);
+}
+html[data-theme='dark'] {
+    color-scheme: dark;
+    --body-background-color: var(--color-neutral-900);
+    --body-text-color: var(--color-neutral-300);
+    --code-comments-color: var(--color-neutral-400);
+    --headings-color: #fff;
+    --divider-color: var(--color-neutral-600);
+    --border-color: var(--color-neutral-500);
+    --icon-color: var(--body-text-color);
+    --dark-icon-color: #fff;
+    --link-color: var(--color-primary-400);
+    --lighter-background-color: var(--color-neutral-800);
+    --lightest-background-color: var(--color-neutral-800);
+    --docs-lightest-background-color: var(--color-neutral-800);
+    --hero-background-color: var(--color-neutral-800);
+    --footer-background-color: var(--color-neutral-800);
+    --outline-color: #fff;
+    --editor-string-color: var(--color-warning-300);
+    --editor-comment-color: var(--color-success-500);
+    --editor-keyword-color: var(--color-primary-500);
+    --editor-name-color: var(--color-primary-300);
+    --editor-bracket-match-outline-color: var(--color-neutral-600);
+    --editor-bracket-match-background-color: var(--color-neutral-700);
+    --editor-bracket-match-color: var(--color-neutral-25);
+    --logo-color: #fff;
+    --logo-center-color: #fff;
+    --sponsor-background-color: #fff;
+    --label-text-color: var(--color-neutral-100);
+    --code-text-color: var(--color-neutral-100);
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --logo-center-opacity: var(--opacity-60);
+    }
+}
+:root {
+    --opacity-100: 1;
+    --opacity-60: 0.6;
+    --logo-center-opacity: var(--opacity-100);
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --sponsor-img-border-radius: var(--border-radius);
+        --sponsor-backers-img-border-radius: var(--border-radius);
+        --github-logo-filter: invert(100%);
+    }
+}
+:root {
+    --shadow-lg: 0 12px 16px -4px rgba(16, 24, 40, 0.1), 0 4px 6px -2px rgba(16, 24, 40, 0.05);
+    --shadow-xs: 0 1px 2px rgba(16, 24, 40, 0.05);
+    --border-radius: 0.5rem;
+}
+:root {
+    --opacity-100: 1;
+    --opacity-60: 0.6;
+    --logo-center-opacity: var(--opacity-100);
+}
+:root {
+    --shadow-lg: 0 12px 16px -4px rgba(16, 24, 40, 0.1), 0 4px 6px -2px rgba(16, 24, 40, 0.05);
+    --shadow-xs: 0 1px 2px rgba(16, 24, 40, 0.05);
+    --border-radius: 0.5rem;
+}
+:root {
+    --fluid-min-width: 320;
+    --fluid-max-width: 1280;
+    --fluid-screen: 100vw;
+    --fluid-bp: calc(
+        (var(--fluid-screen) - var(--fluid-min-width) / 16 * 1rem) /
+            (var(--fluid-max-width) - var(--fluid-min-width))
+    );
+    --f--2-min: 12.64;
+    --f--2-max: 10.24;
+    --step--2: calc(
+        ((var(--f--2-min) / 16) * 1rem) + (var(--f--2-max) - var(--f--2-min)) * var(--fluid-bp)
+    );
+    --f--1-min: 14.22;
+    --f--1-max: 12.8;
+    --step--1: calc(
+        ((var(--f--1-min) / 16) * 1rem) + (var(--f--1-max) - var(--f--1-min)) * var(--fluid-bp)
+    );
+    --f-0-min: 16;
+    --f-0-max: 16;
+    --step-0: calc(
+        ((var(--f-0-min) / 16) * 1rem) + (var(--f-0-max) - var(--f-0-min)) * var(--fluid-bp)
+    );
+    --f-1-min: 18;
+    --f-1-max: 20;
+    --step-1: calc(
+        ((var(--f-1-min) / 16) * 1rem) + (var(--f-1-max) - var(--f-1-min)) * var(--fluid-bp)
+    );
+    --f-2-min: 20.25;
+    --f-2-max: 25;
+    --step-2: calc(
+        ((var(--f-2-min) / 16) * 1rem) + (var(--f-2-max) - var(--f-2-min)) * var(--fluid-bp)
+    );
+    --f-3-min: 22.78;
+    --f-3-max: 31.25;
+    --step-3: calc(
+        ((var(--f-3-min) / 16) * 1rem) + (var(--f-3-max) - var(--f-3-min)) * var(--fluid-bp)
+    );
+    --f-4-min: 25.63;
+    --f-4-max: 39.06;
+    --step-4: calc(
+        ((var(--f-4-min) / 16) * 1rem) + (var(--f-4-max) - var(--f-4-min)) * var(--fluid-bp)
+    );
+    --f-5-min: 28.83;
+    --f-5-max: 48.83;
+    --step-5: calc(
+        ((var(--f-5-min) / 16) * 1rem) + (var(--f-5-max) - var(--f-5-min)) * var(--fluid-bp)
+    );
+    --f-6-min: 32.44;
+    --f-6-max: 61.04;
+    --step-6: calc(
+        ((var(--f-6-min) / 16) * 1rem) + (var(--f-6-max) - var(--f-6-min)) * var(--fluid-bp)
+    );
+    --mono-font: 'Mono Punctuators', 'Space Mono', monospace;
+    --text-font:
+        'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
+        sans-serif, 'Apple Color Emoji', 'Twemoji Country Flags', 'Segoe UI Emoji',
+        'Segoe UI Symbol';
+    --display-font:
+        'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
+        sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+:root {
+    --fc-3xs-min: calc(var(--fc-s-min) * 0.25);
+    --fc-3xs-max: calc(var(--fc-s-max) * 0.25);
+    --fc-2xs-min: calc(var(--fc-s-min) * 0.5);
+    --fc-2xs-max: calc(var(--fc-s-max) * 0.5);
+    --fc-xs-min: calc(var(--fc-s-min) * 0.75);
+    --fc-xs-max: calc(var(--fc-s-max) * 0.75);
+    --fc-s-min: calc(var(--f-0-min));
+    --fc-s-max: calc(var(--f-0-max));
+    --fc-m-min: calc(var(--fc-s-min) * 1.5);
+    --fc-m-max: calc(var(--fc-s-max) * 1.5);
+    --fc-l-min: calc(var(--fc-s-min) * 2);
+    --fc-l-max: calc(var(--fc-s-max) * 2);
+    --fc-xl-min: calc(var(--fc-s-min) * 3);
+    --fc-xl-max: calc(var(--fc-s-max) * 3);
+    --fc-2xl-min: calc(var(--fc-s-min) * 4);
+    --fc-2xl-max: calc(var(--fc-s-max) * 4);
+    --fc-3xl-min: calc(var(--fc-s-min) * 6);
+    --fc-3xl-max: calc(var(--fc-s-max) * 6);
+    --fc-4xl-min: calc(var(--fc-s-min) * 8);
+    --fc-4xl-max: calc(var(--fc-s-max) * 8);
+    --space-3xs: calc(
+        ((var(--fc-3xs-min) / 16) * 1rem) + (var(--fc-3xs-max) - var(--fc-3xs-min)) *
+            var(--fluid-bp)
+    );
+    --space-2xs: calc(
+        ((var(--fc-2xs-min) / 16) * 1rem) + (var(--fc-2xs-max) - var(--fc-2xs-min)) *
+            var(--fluid-bp)
+    );
+    --space-xs: calc(
+        ((var(--fc-xs-min) / 16) * 1rem) + (var(--fc-xs-max) - var(--fc-xs-min)) * var(--fluid-bp)
+    );
+    --space-s: calc(
+        ((var(--fc-s-min) / 16) * 1rem) + (var(--fc-s-max) - var(--fc-s-min)) * var(--fluid-bp)
+    );
+    --space-m: calc(
+        ((var(--fc-m-min) / 16) * 1rem) + (var(--fc-m-max) - var(--fc-m-min)) * var(--fluid-bp)
+    );
+    --space-l: calc(
+        ((var(--fc-l-min) / 16) * 1rem) + (var(--fc-l-max) - var(--fc-l-min)) * var(--fluid-bp)
+    );
+    --space-xl: calc(
+        ((var(--fc-xl-min) / 16) * 1rem) + (var(--fc-xl-max) - var(--fc-xl-min)) * var(--fluid-bp)
+    );
+    --space-2xl: calc(
+        ((var(--fc-2xl-min) / 16) * 1rem) + (var(--fc-2xl-max) - var(--fc-2xl-min)) *
+            var(--fluid-bp)
+    );
+    --space-3xl: calc(
+        ((var(--fc-3xl-min) / 16) * 1rem) + (var(--fc-3xl-max) - var(--fc-3xl-min)) *
+            var(--fluid-bp)
+    );
+    --space-4xl: calc(
+        ((var(--fc-4xl-min) / 16) * 1rem) + (var(--fc-4xl-max) - var(--fc-4xl-min)) *
+            var(--fluid-bp)
+    );
+    --space-3xs-2xs: calc(
+        ((var(--fc-3xs-min) / 16) * 1rem) + (var(--fc-2xs-max) - var(--fc-3xs-min)) *
+            var(--fluid-bp)
+    );
+    --space-2xs-xs: calc(
+        ((var(--fc-2xs-min) / 16) * 1rem) + (var(--fc-xs-max) - var(--fc-2xs-min)) * var(--fluid-bp)
+    );
+    --space-xs-s: calc(
+        ((var(--fc-xs-min) / 16) * 1rem) + (var(--fc-s-max) - var(--fc-xs-min)) * var(--fluid-bp)
+    );
+    --space-s-m: calc(
+        ((var(--fc-s-min) / 16) * 1rem) + (var(--fc-m-max) - var(--fc-s-min)) * var(--fluid-bp)
+    );
+    --space-m-l: calc(
+        ((var(--fc-m-min) / 16) * 1rem) + (var(--fc-l-max) - var(--fc-m-min)) * var(--fluid-bp)
+    );
+    --space-l-xl: calc(
+        ((var(--fc-l-min) / 16) * 1rem) + (var(--fc-xl-max) - var(--fc-l-min)) * var(--fluid-bp)
+    );
+    --space-xl-2xl: calc(
+        ((var(--fc-xl-min) / 16) * 1rem) + (var(--fc-2xl-max) - var(--fc-xl-min)) * var(--fluid-bp)
+    );
+    --space-2xl-3xl: calc(
+        ((var(--fc-2xl-min) / 16) * 1rem) + (var(--fc-3xl-max) - var(--fc-2xl-min)) *
+            var(--fluid-bp)
+    );
+    --space-3xl-4xl: calc(
+        ((var(--fc-3xl-min) / 16) * 1rem) + (var(--fc-4xl-max) - var(--fc-3xl-min)) *
+            var(--fluid-bp)
+    );
+    --space-l-2xl: calc(
+        ((var(--fc-l-min) / 16) * 1rem) + (var(--fc-2xl-max) - var(--fc-l-min)) * var(--fluid-bp)
+    );
+    --space-xl-3xl: calc(
+        ((var(--fc-xl-min) / 16) * 1rem) + (var(--fc-3xl-max) - var(--fc-xl-min)) * var(--fluid-bp)
+    );
+    --space-xl-4xl: calc(
+        ((var(--fc-xl-min) / 16) * 1rem) + (var(--fc-4xl-max) - var(--fc-xl-min)) * var(--fluid-bp)
+    );
+    --spacer-2x: 2rem;
+    --spacer-3x: 3rem;
+    --spacer-4x: 4rem;
+    --spacer-6x: 6rem;
+    --spacer-8x: 8rem;
+}
+
+html {
+    accent-color: var(--link-color);
+    background-color: var(--body-background-color);
+    height: 100%;
+    font-family: var(--text-font), serif;
+    overflow-x: hidden;
+    caret-color: var(--link-color);
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+::selection {
+    background-color: var(--color-brand);
+    color: #fff;
+}
+::selection {
+    background-color: var(--color-brand);
+    color: #fff;
+}
+::selection {
+    background-color: var(--color-brand);
+    color: #fff;
+}
+::selection {
+    background-color: var(--color-brand);
+    color: #fff;
+}
+button {
+    border: none;
+    background: none;
+    font: inherit;
+    cursor: pointer;
+    line-height: inherit;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
 /*content sizes*/
 :root {
     margin: 0;
@@ -152,12 +464,9 @@
     box-sizing: border-box;
     --max-content-width: 1280px;
 }
-
-
-html{
+html {
     font-size: 10px;
 }
-
 a {
     font-weight: bold;
     font-size: var(--font-size-md);
@@ -173,6 +482,7 @@ body {
     min-height: 100vh;
     max-width: 1440px;
     font-family: var(--font-roboto-mono), sans-serif;
+    background-color: var(--body-background-color);
 }
 
 h1 {
@@ -183,10 +493,76 @@ h1 {
 @media (prefers-color-scheme: light) {
     :root {
         color: #213547;
-        background-color: #ffffff;
-    }
-    a:hover {
-        color: #747bff;
+        background-color: #fff;
+
+        --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        --body-background-color: #fff;
+        --body-text-color: var(--color-neutral-500);
+        --code-comments-color: var(--color-neutral-500);
+        --headings-color: var(--color-neutral-900);
+        --border-color: var(--color-neutral-300);
+        --divider-color: var(--color-neutral-200);
+        --icon-color: var(--color-neutral-400);
+        --dark-icon-color: var(--color-neutral-500);
+        --link-color: var(--color-primary-800);
+        --lighter-background-color: var(--color-neutral-100);
+        --lightest-background-color: var(--color-neutral-50);
+        --docs-lightest-background-color: var(--color-primary-50);
+        --hero-background-color: var(--color-neutral-25);
+        --footer-background-color: var(--color-neutral-25);
+        --outline-color: var(--color-brand);
+        --editor-string-color: var(--color-warning-800);
+        --editor-comment-color: var(--color-success-700);
+        --editor-keyword-color: var(--color-primary-900);
+        --editor-name-color: var(--color-primary-700);
+        --editor-bracket-match-outline-color: var(--color-neutral-200);
+        --editor-bracket-match-background-color: var(--color-neutral-100);
+        --editor-bracket-match-color: none;
+        --logo-color: var(--color-primary-800);
+        --logo-center-color: var(--color-primary-600);
+        --label-text-color: var(--color-neutral-700);
+        --code-text-color: var(--color-neutral-900);
+
+        --sponsor-img-border-radius: 0;
+        --sponsor-backers-img-border-radius: 50%;
+        --github-logo-filter: invert(0);
     }
 }
 
+@media (prefers-color-scheme: dark) {
+    :root {
+        --logo-center-opacity: var(--opacity-60);
+        --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+        color-scheme: dark;
+        --body-background-color: var(--color-neutral-900);
+        --body-text-color: var(--color-neutral-300);
+        --code-comments-color: var(--color-neutral-400);
+        --headings-color: #fff;
+        --divider-color: var(--color-neutral-600);
+        --border-color: var(--color-neutral-500);
+        --icon-color: var(--body-text-color);
+        --dark-icon-color: #fff;
+        --link-color: var(--color-primary-400);
+        --lighter-background-color: var(--color-neutral-800);
+        --lightest-background-color: var(--color-neutral-800);
+        --docs-lightest-background-color: var(--color-neutral-800);
+        --hero-background-color: var(--color-neutral-800);
+        --footer-background-color: var(--color-neutral-800);
+        --outline-color: #fff;
+        --editor-string-color: var(--color-warning-300);
+        --editor-comment-color: var(--color-success-500);
+        --editor-keyword-color: var(--color-primary-500);
+        --editor-name-color: var(--color-primary-300);
+        --editor-bracket-match-outline-color: var(--color-neutral-600);
+        --editor-bracket-match-background-color: var(--color-neutral-700);
+        --editor-bracket-match-color: var(--color-neutral-25);
+        --logo-color: #fff;
+        --logo-center-color: #fff;
+        --sponsor-background-color: #fff;
+        --label-text-color: var(--color-neutral-100);
+        --code-text-color: var(--color-neutral-100);
+        --sponsor-img-border-radius: var(--border-radius);
+        --sponsor-backers-img-border-radius: var(--border-radius);
+        --github-logo-filter: invert(100%);
+    }
+}

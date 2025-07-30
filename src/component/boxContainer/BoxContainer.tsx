@@ -1,4 +1,5 @@
 import s from './BoxContainer.module.css';
+import React from 'react';
 
 type Props = {
     getFile: (file: File) => void;
