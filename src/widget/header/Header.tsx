@@ -5,7 +5,7 @@ import cn from 'classnames';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-export default function Header(): JSX.Element {
+export default function HeaderC(): JSX.Element {
     const [isOpen, setOpen] = useState<boolean>(true);
     const handleOpenMenu = (): void => {
         setOpen((prevState) => !prevState);
@@ -13,7 +13,7 @@ export default function Header(): JSX.Element {
     return (
         <header className={s.siteHeader}>
             <div className={s.contentContainer}>
-                <a href="/" aria-label="Домашняя страница" className={s.logoLink}>
+                <NavLink to="/" aria-label="Домашняя страница" className={s.logoLink}>
                     <div className={s.logo}>
                         <svg
                             className="brand-logo"
@@ -68,7 +68,7 @@ export default function Header(): JSX.Element {
                             ></path>
                         </svg>
                     </div>
-                </a>
+                </NavLink>
                 <nav className={s.siteNav} aria-label="Основной">
                     <div className={s.flexer}>
                         <a href="/donate" className={cn(s.cBtn, s.cBtnPrimary, s.donateLink)}>
@@ -103,7 +103,11 @@ export default function Header(): JSX.Element {
                                 Документация
                             </NavLink>
                         </li>
-
+                        <li>
+                            <NavLink to="" className={s.navItem}>
+                                Загрузка файла
+                            </NavLink>
+                        </li>
                         <li>
                             <NavLink to="pdf-setting" className={s.navItem}>
                                 Настройки PDF

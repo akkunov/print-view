@@ -1,4 +1,4 @@
-import Header from '../component/header/Header';
+import HeaderC from '../widget/header/Header';
 import { Outlet } from 'react-router-dom';
 import { FC } from 'react';
 
@@ -12,7 +12,7 @@ const Layout: FC = () => {
                 width: '100vw',
             }}
         >
-            <Header />
+            <HeaderC />
             <section
                 style={{
                     backgroundColor: 'var(--hero-background-color)',

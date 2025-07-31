@@ -1,9 +1,9 @@
 import cn from 'classnames';
-import type { ComponentProps, ElementType } from 'react';
+import type { ComponentProps, ElementType, ReactNode } from 'react';
 import s from './Button.module.css';
 
 type ButtonOwnProps<E extends ElementType = ElementType> = {
-    children: React.ReactNode;
+    children: ReactNode;
     primary?: boolean;
     secondary?: boolean;
     className?: string;

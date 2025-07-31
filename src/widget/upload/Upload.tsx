@@ -5,14 +5,14 @@ import DeleteSvg from '../../assets/svg/deleteSvg';
 import DriveSvg from '../../assets/svg/drive';
 import { SendSvg } from '../../assets/svg/sendSvg';
 import { uploadFile } from '../../fetch/FetchUpload';
-import BoxContainer from '../boxContainer/BoxContainer';
+import BoxContainer from '../../component/boxContainer/BoxContainer';
 import { isExcelFile } from '../../services/excel.validate';
 
 type IError = {
     status?: number | string;
     message: string;
 };
-export default function Upload() {
+export default function UploadC() {
     const inputRef = useRef<HTMLInputElement | null>(null);
     const [file, setFile] = useState<File | null>(null);
     const [isDragging, setIsDragging] = useState<boolean>(false);

@@ -9,8 +9,8 @@ import {
 } from 'react-router-dom';
 
 import Layout from './routes/Layout';
-import Upload from './component/upload/Upload';
 import Settings from 'routes/Settings';
+import Upload from 'routes/Upload';
 
 function App(): React.JSX.Element {
     const router = createBrowserRouter(
