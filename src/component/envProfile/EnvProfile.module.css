@@ -1,0 +1,24 @@
+.setting {
+    --width : 370px;
+
+    max-width: var(--width);
+    width: 100%;
+    min-width: 200px;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+    align-content: center;
+
+    padding: var(--space-xl);
+    background: var(--lighter-background-color);
+    border-radius: var(--border-radius);
+}
+.title{
+    font-weight: bold;
+    font-size: var(--step-2);
+}
+
+.text{
+    font-size: var(--step-1);
+}
