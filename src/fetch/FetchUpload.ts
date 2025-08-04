@@ -1,9 +1,22 @@
-const API_URL: string = 'http://10.2.194.57:3001/api/upload';
+import { NVELOPEPROFILEURL, UPLOAD } from './API_URL';
 
 type UploadError = {
     message: string;
     type?: number;
     status: number;
+};
+
+export type EnvelopeProfile = {
+    name: string;
+    width: number;
+    height: number;
+    lineHeight: number;
+    fontSize: number;
+    isRemoveLastWord: boolean;
+    padding: {
+        top: number;
+        left: number;
+    };
 };
 
 type UploadResult = { success: true; pdfBlob: Blob } | { success: false; error: UploadError };
@@ -13,7 +26,7 @@ export const uploadFile = async (file: File): Promise<UploadResult> => {
     formData.append('file', file);
 
     try {
-        const res = await fetch(API_URL, {
+        const res = await fetch(UPLOAD, {
             method: 'POST',
             body: formData,
         });
@@ -34,5 +47,24 @@ export const uploadFile = async (file: File): Promise<UploadResult> => {
             success: false,
             error: uploadError,
         };
+    }
+};
+
+export const getAllEnvProfile = async (): Promise<EnvelopeProfile | UploadError> => {
+    try {
+        const res = await fetch(NVELOPEPROFILEURL, {
+            method: 'GET',
+            headers: {
+                Accept: 'application/json',
+            },
+        });
+        const data = await res.json();
+        if (!res.ok) {
+            throw new Error('EnvelopeProfile returned no response', data);
+        }
+        return data;
+    } catch (error) {
+        const uploadError = error as UploadError;
+        return uploadError;
     }
 };

@@ -11,6 +11,7 @@ import {
 import Layout from './routes/Layout';
 import Settings from 'routes/Settings';
 import Upload from 'routes/Upload';
+import { getAllEnvProfile } from './fetch/FetchUpload';
 
 function App(): React.JSX.Element {
     const router = createBrowserRouter(
@@ -19,7 +20,11 @@ function App(): React.JSX.Element {
                 <Route path="/" element={<Layout />}>
                     <Route path="" element={<Navigate to={'upload'} />} />
                     <Route path="upload" element={<Upload />} />
-                    <Route path="pdf-setting" element={<Settings />} />
+                    <Route
+                        path="pdf-setting"
+                        element={<Settings />}
+                        loader={() => getAllEnvProfile()}
+                    />
                 </Route>
             </Route>
         )

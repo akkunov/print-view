@@ -16,9 +16,6 @@ const SettingC: FC = () => {
                         placeholder={'Размер шрифта'}
                     />
                 </span>
-            </Box>
-
-            <Box className={s.setting}>
                 <span className={s.title}>Размер конверта ММ</span>
                 <div className={s.inputContainer}>
                     <Input

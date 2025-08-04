@@ -39,6 +39,7 @@
     padding: var(--step-0);
     border-radius: var(--border-radius);
     border: 1px solid var(--border-color);
+    font-size: var(--step-1);
 }
 
 .input:focus{
