@@ -15,10 +15,10 @@ const EnvProfile: React.FunctionComponent<Props> = ({ data }) => {
     const toggleUpdate = (profileName: string) => {
         setActiveProfileName((prev) => (prev === profileName ? null : profileName));
     };
-
+    
     return (
         <>
-            {data &&
+            {data && data.length > 0 &&
                 data.map((item: EnvelopeProfile) => (
                     <Box key={item.name} className={s.setting}>
                         <div>
