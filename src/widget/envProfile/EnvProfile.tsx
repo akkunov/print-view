@@ -16,8 +16,9 @@ const EnvProfile: React.FunctionComponent<Props> = ({ data }) => {
     const [activeProfileName, setActiveProfileName] = useState<string | null>(null);
     const [items, setItems] = useState<EnvelopeProfile[]>(data);
     const handleChange = (profileName: string, field: keyof EnvelopeProfile, value: string) => {
+        const numValue = Number(value);
         setItems((prev) =>
-            prev.map((item) => (item.name === profileName ? { ...item, [field]: value } : item))
+            prev.map((item) => (item.name === profileName ? { ...item, [field]: numValue } : item))
         );
     };
     const handleSave = () => {
