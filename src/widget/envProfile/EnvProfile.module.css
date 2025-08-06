@@ -4,7 +4,7 @@
     max-width: var(--width);
     width: 100%;
     min-width: 200px;
-    height: 400px;
+    height: auto;
 
 
     display: flex;
@@ -17,11 +17,21 @@
     border-radius: var(--border-radius);
     box-sizing: border-box;
 }
+.actionGroup{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.1rem;
+}
 
 
 .title{
     font-weight: bold;
     font-size: var(--step-3);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .subtitle {
     font-weight: bold;
@@ -76,3 +86,54 @@ input[type="checkbox"]::after {
 input:checked[type="checkbox"]::after {
     left: 50%;
 }
+
+.input{
+    width: 100%;
+    padding: var(--step-0);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    font-size: var(--step-1);
+}
+
+.input:focus{
+    outline: none;
+    border: 1px solid var(--link-color);
+}
+
+.cBtn {
+    text-decoration: none;
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    font-family: var(--font-roboto-mono), serif;
+    font-size: var(--step-1);
+}
+.cBtnPrimary {
+    background-color: var(--color-primary-800);
+    color: var(--primary-button-text-color);
+}
+.cBtn {
+    border: none;
+    font: inherit;
+    font-family: var(--text-font), serif;
+    cursor: pointer;
+    line-height: inherit;
+    font-weight: 500;
+    font-size: var(--step-1);
+    display: inline-flex;
+    padding: 1.5rem 1rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius);
+    transition:
+            background-color 0.2s linear,
+            border-color 0.1s linear;
+}
+
+.cBtnPrimary:active {
+    background-color: var(--color-primary-600);
+}
+
+
+

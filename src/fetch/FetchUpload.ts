@@ -1,6 +1,6 @@
-import { NVELOPEPROFILEURL, UPLOAD } from './API_URL';
+import { UPLOAD } from './API_URL';
 
-type UploadError = {
+export type ErrorResponse = {
     message: string;
     type?: number;
     status: number;
@@ -10,16 +10,15 @@ export type EnvelopeProfile = {
     name: string;
     width: number;
     height: number;
-    lineHeight: number;
     fontSize: number;
+    lineHeight: number;
     isRemoveLastWord: boolean;
-    padding: {
-        top: number;
-        left: number;
-    };
+    using: boolean;
+    paddingTop: number;
+    paddingLeft: number;
 };
 
-type UploadResult = { success: true; pdfBlob: Blob } | { success: false; error: UploadError };
+type UploadResult = { success: true; pdfBlob: Blob } | { success: false; error: ErrorResponse };
 
 export const uploadFile = async (file: File): Promise<UploadResult> => {
     const formData = new FormData();
@@ -42,29 +41,10 @@ export const uploadFile = async (file: File): Promise<UploadResult> => {
         const pdfBlob = await res.blob();
         return { success: true, pdfBlob };
     } catch (error) {
-        const uploadError = error as UploadError;
+        const uploadError = error as ErrorResponse;
         return {
             success: false,
             error: uploadError,
         };
-    }
-};
-
-export const getAllEnvProfile = async (): Promise<EnvelopeProfile | UploadError> => {
-    try {
-        const res = await fetch(NVELOPEPROFILEURL, {
-            method: 'GET',
-            headers: {
-                Accept: 'application/json',
-            },
-        });
-        const data = await res.json();
-        if (!res.ok) {
-            throw new Error('EnvelopeProfile returned no response', data);
-        }
-        return data;
-    } catch (error) {
-        const uploadError = error as UploadError;
-        return uploadError;
     }
 };

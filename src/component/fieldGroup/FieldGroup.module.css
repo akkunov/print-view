@@ -12,7 +12,6 @@
     max-width: var(--width);
     width: 100%;
     min-width: 200px;
-    height: 400px;
 
     display: flex;
     flex-direction: column;
@@ -44,4 +43,38 @@
 .input:focus{
     outline: none;
     border: 1px solid var(--link-color);
+}
+.cBtn {
+    text-decoration: none;
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    font-family: var(--font-roboto-mono), serif;
+    font-size: var(--step-1);
+}
+.cBtnPrimary {
+    background-color: var(--color-primary-800);
+    color: var(--primary-button-text-color);
+}
+.cBtn {
+    border: none;
+    font: inherit;
+    font-family: var(--text-font), serif;
+    cursor: pointer;
+    line-height: inherit;
+    font-weight: 500;
+    font-size: var(--step-1);
+    display: inline-flex;
+    padding: 1.5rem 1rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius);
+    transition:
+            background-color 0.2s linear,
+            border-color 0.1s linear;
+}
+
+.cBtnPrimary:active{
+    background-color: var(--color-primary-600);
 }

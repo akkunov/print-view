@@ -11,7 +11,7 @@ import {
 import Layout from './routes/Layout';
 import Settings from 'routes/Settings';
 import Upload from 'routes/Upload';
-import { getAllEnvProfile } from './fetch/FetchUpload';
+import { getAllEnvProfile } from 'fetch/FetchEnvProfiles';
 
 function App(): React.JSX.Element {
     const router = createBrowserRouter(
