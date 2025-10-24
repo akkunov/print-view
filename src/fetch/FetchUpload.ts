@@ -18,7 +18,9 @@ export type EnvelopeProfile = {
     paddingLeft: number;
 };
 
-type UploadResult = { success: true; pdfBlob: Blob } | { success: false; error: ErrorResponse };
+type UploadResult =
+    | { success: true; pdfEnv: Blob; pdfNote: Blob }
+    | { success: false; error: ErrorResponse };
 
 export const uploadFile = async (file: File): Promise<UploadResult> => {
     const formData = new FormData();
@@ -38,8 +40,17 @@ export const uploadFile = async (file: File): Promise<UploadResult> => {
             };
         }
 
-        const pdfBlob = await res.blob();
-        return { success: true, pdfBlob };
+        const { pdfBuffer, pdfNoteBuffer } = await res.json();
+
+        // base64 → Blob
+        const pdfEnv = new Blob([Uint8Array.from(atob(pdfBuffer), (c) => c.charCodeAt(0))], {
+            type: 'application/pdf',
+        });
+        const pdfNote = new Blob([Uint8Array.from(atob(pdfNoteBuffer), (c) => c.charCodeAt(0))], {
+            type: 'application/pdf',
+        });
+
+        return { success: true, pdfEnv, pdfNote };
     } catch (error) {
         const uploadError = error as ErrorResponse;
         return {

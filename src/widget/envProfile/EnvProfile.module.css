@@ -1,11 +1,10 @@
 .setting {
-    --width : 350px;
+    --width: 350px;
 
     max-width: var(--width);
     width: 100%;
     min-width: 200px;
     height: auto;
-
 
     display: flex;
     flex-direction: column;
@@ -17,7 +16,7 @@
     border-radius: var(--border-radius);
     box-sizing: border-box;
 }
-.actionGroup{
+.actionGroup {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -25,8 +24,7 @@
     gap: 0.1rem;
 }
 
-
-.title{
+.title {
     font-weight: bold;
     font-size: var(--step-3);
     white-space: nowrap;
@@ -37,12 +35,12 @@
     font-weight: bold;
     font-size: var(--step-2);
 }
-.setting div{
+.setting div {
     display: flex;
     width: 100%;
     justify-content: space-between;
 }
-.text{
+.text {
     font-size: var(--step-1);
 }
 
@@ -52,7 +50,7 @@
     gap: var(--space-s);
 }
 
-input[type="checkbox"] {
+input[type='checkbox'] {
     position: relative;
     appearance: none;
     width: 50px;
@@ -65,13 +63,13 @@ input[type="checkbox"] {
     text-align: center;
 }
 
-input:checked[type="checkbox"] {
+input:checked[type='checkbox'] {
     background: #7da6ff;
 }
 
-input[type="checkbox"]::after {
+input[type='checkbox']::after {
     position: absolute;
-    content: "";
+    content: '';
     width: 25px;
     height: 25px;
     top: 0;
@@ -83,11 +81,11 @@ input[type="checkbox"]::after {
     transition: 0.4s;
 }
 
-input:checked[type="checkbox"]::after {
+input:checked[type='checkbox']::after {
     left: 50%;
 }
 
-.input{
+.input {
     width: 100%;
     padding: var(--step-0);
     border-radius: var(--border-radius);
@@ -95,7 +93,7 @@ input:checked[type="checkbox"]::after {
     font-size: var(--step-1);
 }
 
-.input:focus{
+.input:focus {
     outline: none;
     border: 1px solid var(--link-color);
 }
@@ -127,13 +125,10 @@ input:checked[type="checkbox"]::after {
     justify-content: center;
     border-radius: var(--border-radius);
     transition:
-            background-color 0.2s linear,
-            border-color 0.1s linear;
+        background-color 0.2s linear,
+        border-color 0.1s linear;
 }
 
 .cBtnPrimary:active {
     background-color: var(--color-primary-600);
 }
-
-
-

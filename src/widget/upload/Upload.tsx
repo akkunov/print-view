@@ -18,6 +18,7 @@ export default function UploadC() {
     const [isDragging, setIsDragging] = useState<boolean>(false);
     const [isUploading, setIsUploading] = useState<boolean>(false);
     const [error, setError] = useState<IError | null>(null);
+    const [pdfLinks, setPdfLinks] = useState<{ url: string; name: string }[]>([]);
 
     const handleUploadClick = () => inputRef.current?.click();
 
@@ -53,9 +54,17 @@ export default function UploadC() {
         const res = await uploadFile(file);
         setIsUploading(false);
         if (res.success) {
+            console.log(res);
+
+            // создаём ссылки для открытия
+            const url1 = URL.createObjectURL(res.pdfEnv);
+            const url2 = URL.createObjectURL(res.pdfNote);
+
+            setPdfLinks([
+                { url: url1, name: 'PDF Конверт' },
+                { url: url2, name: 'PDF Аныктама' },
+            ]);
             setFile(null);
-            const pdfUrl = URL.createObjectURL(res.pdfBlob);
-            window.open(pdfUrl);
         } else {
             const { message, status } = res.error;
             setError({ status, message });
@@ -114,6 +123,23 @@ export default function UploadC() {
                     style={{ display: 'none' }}
                 />
             </BoxContainer>
+            <div>
+                {pdfLinks.length > 0 && (
+                    <div className={s.pdfLinks}>
+                        {pdfLinks.map((link, idx) => (
+                            <a
+                                key={idx}
+                                href={link.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={s.pdfLink}
+                            >
+                                {link.name}
+                            </a>
+                        ))}
+                    </div>
+                )}
+            </div>
         </div>
     );
 }

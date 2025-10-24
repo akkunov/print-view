@@ -12,6 +12,7 @@ import Layout from './routes/Layout';
 import Settings from 'routes/Settings';
 import Upload from 'routes/Upload';
 import { getAllEnvProfile } from 'fetch/FetchEnvProfiles';
+import Donate from './routes/Donate';
 
 function App(): React.JSX.Element {
     const router = createBrowserRouter(
@@ -25,6 +26,7 @@ function App(): React.JSX.Element {
                         element={<Settings />}
                         loader={() => getAllEnvProfile()}
                     />
+                    <Route path="donate" element={<Donate />} />
                 </Route>
             </Route>
         )

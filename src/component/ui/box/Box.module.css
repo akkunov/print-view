@@ -1,4 +1,4 @@
-.box{
+.box {
     box-shadow: var(--shadow-lg);
     border: 1px solid var(--divider-color);
 }

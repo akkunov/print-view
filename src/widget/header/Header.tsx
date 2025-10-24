@@ -71,7 +71,7 @@ export default function HeaderC(): JSX.Element {
                 </NavLink>
                 <nav className={s.siteNav} aria-label="Основной">
                     <div className={s.flexer}>
-                        <NavLink to="/" className={cn(s.cBtn, s.cBtnPrimary, s.donateLink)}>
+                        <NavLink to="/donate" className={cn(s.cBtn, s.cBtnPrimary, s.donateLink)}>
                             Пожертвовать
                         </NavLink>
                         <button

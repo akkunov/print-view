@@ -24,14 +24,14 @@ const localIP = getLocalIP();
 export default defineConfig({
     plugins: [react(), tsconfigPaths()],
     server: {
-      host: localIP,
-      port: 80,
-      proxy: {
-        '/api': {
-          target: `http://${localIP}:3001`,
-          changeOrigin: true,
+        host: localIP,
+        port: 80,
+        proxy: {
+            '/api': {
+                target: `http://${localIP}:3001`,
+                changeOrigin: true,
+            },
         },
-      },
     },
     resolve: {
         alias: {
