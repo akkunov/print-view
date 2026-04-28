@@ -59,10 +59,12 @@ export default function UploadC() {
             // создаём ссылки для открытия
             const url1 = URL.createObjectURL(res.pdfEnv);
             const url2 = URL.createObjectURL(res.pdfNote);
+            const url3 = URL.createObjectURL(res.pdfNote2);
 
             setPdfLinks([
                 { url: url1, name: 'PDF Конверт' },
                 { url: url2, name: 'PDF Аныктама' },
+                { url: url3, name: 'PDF Аныктама 2' },
             ]);
             setFile(null);
         } else {
