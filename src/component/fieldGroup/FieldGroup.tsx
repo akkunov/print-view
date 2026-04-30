@@ -92,6 +92,7 @@ const FormField: FC<{
 
 const FieldGroup: FC = () => {
     const [formData, setFormData] = useState<EnvelopeProfile>({
+        id: '',
         name: '',
         fontSize: 12,
         width: 220,
