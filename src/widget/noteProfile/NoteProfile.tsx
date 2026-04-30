@@ -2,16 +2,16 @@
 import React from 'react';
 import { EnvelopeProfile } from '../../fetch/FetchUpload';
 import Box from '../../component/ui/box/Box';
-import s from './EnvProfile.module.css';
-import { useEnvProfiles } from '../../hooks/useEnvProfiles';
-import EnvProfileEdit from './EnvProfileEdit';
-import EnvProfileView from './EnvProfileView';
+import s from './NoteProfile.module.css';
+import NoteProfileEdit from './NoteProfileEdit';
+import NoteProfileView from './NoteProfileView';
+import { useNoteProfiles } from '../../hooks/useNoteProfiles';
 
 type Props = {
     data: EnvelopeProfile[];
 };
 
-const EnvProfile: React.FunctionComponent<Props> = ({ data }) => {
+const NoteProfile: React.FunctionComponent<Props> = ({ data }) => {
     const {
         items,
         activeProfileName,
@@ -21,7 +21,7 @@ const EnvProfile: React.FunctionComponent<Props> = ({ data }) => {
         handleSetUsingProfile,
         handleDelete,
         toggleUpdate,
-    } = useEnvProfiles(data);
+    } = useNoteProfiles(data);
 
     return (
         <>
@@ -30,13 +30,13 @@ const EnvProfile: React.FunctionComponent<Props> = ({ data }) => {
                 items.map((item: EnvelopeProfile) => (
                     <Box key={item.id} className={s.setting}>
                         {activeProfileName === item.id ? (
-                            <EnvProfileEdit
+                            <NoteProfileEdit
                                 profile={item}
                                 onChange={handleChange}
                                 onSave={handleSave}
                             />
                         ) : (
-                            <EnvProfileView
+                            <NoteProfileView
                                 profile={item}
                                 onDelete={handleDelete}
                                 onToggleEdit={toggleUpdate}
@@ -50,4 +50,4 @@ const EnvProfile: React.FunctionComponent<Props> = ({ data }) => {
     );
 };
 
-export default EnvProfile;
+export default NoteProfile;

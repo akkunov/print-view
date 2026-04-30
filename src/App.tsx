@@ -13,6 +13,7 @@ import Settings from 'routes/Settings';
 import Upload from 'routes/Upload';
 import { getAllEnvProfile } from 'fetch/FetchEnvProfiles';
 import Donate from './routes/Donate';
+import { getAllNoteProfile } from './fetch/FetchNoteProfiles';
 
 function App(): React.JSX.Element {
     const router = createBrowserRouter(
@@ -24,7 +25,15 @@ function App(): React.JSX.Element {
                     <Route
                         path="pdf-setting"
                         element={<Settings />}
-                        loader={() => getAllEnvProfile()}
+                        loader={async () => {
+                            const [envRes, noteRes] = await Promise.allSettled([
+                                getAllEnvProfile(),
+                                getAllNoteProfile(),
+                            ]);
+                            const env = envRes.status === 'fulfilled' ? envRes.value : [];
+                            const note = noteRes.status === 'fulfilled' ? noteRes.value : [];
+                            return { env, note };
+                        }}
                     />
                     <Route path="donate" element={<Donate />} />
                 </Route>

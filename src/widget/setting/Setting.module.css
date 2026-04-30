@@ -1,9 +1,15 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
 .container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-content: center;
     gap: var(--space-m);
     place-items: self-start;
+    width: 100%;
 }
 
 @media (max-width: 890px) {
@@ -16,4 +22,39 @@
     .container {
         place-items: center;
     }
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.tab {
+    padding: 10px 20px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    font-size: 16px;
+    color: #666;
+    transition: all 0.3s ease;
+}
+
+.tab:hover {
+    color: #333;
+}
+
+.tab.active {
+    color: #2196F3;
+    border-bottom-color: #2196F3;
+}
+
+.tabContent {
+    display: none;
+}
+
+.tabContent.active {
+    display: block;
+    width: 100%;
 }

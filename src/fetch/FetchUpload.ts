@@ -16,6 +16,7 @@ export type EnvelopeProfile = {
     using: boolean;
     paddingTop: number;
     paddingLeft: number;
+    id: string;
 };
 
 type UploadResult =

@@ -6,11 +6,16 @@ import { EnvelopeProfile } from 'fetch/FetchUpload';
 import Container from '../component/ui/container/Container';
 
 const Settings: FC = () => {
-    const profile = useLoaderData();
-    const data = profile as EnvelopeProfile[];
+    const { env, note } = useLoaderData() as {
+        env: EnvelopeProfile[];
+        note: EnvelopeProfile[];
+    };
+    console.log(env);
+    console.log(note);
+
     return (
         <Container>
-            <SettingC data={data} />
+            <SettingC envelope={env} notification={note} />
         </Container>
     );
 };

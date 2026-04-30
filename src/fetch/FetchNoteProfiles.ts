@@ -1,9 +1,9 @@
-import { ENVELOPE_PROFILE_URL } from './API_URL';
+import { NOTE_PROFILE_URL } from './API_URL';
 import { EnvelopeProfile, ErrorResponse } from './FetchUpload';
 
-export const getAllEnvProfile = async (): Promise<EnvelopeProfile | ErrorResponse> => {
+export const getAllNoteProfile = async (): Promise<EnvelopeProfile | ErrorResponse> => {
     try {
-        const res = await fetch(ENVELOPE_PROFILE_URL, {
+        const res = await fetch(NOTE_PROFILE_URL, {
             method: 'GET',
             headers: {
                 Accept: 'application/json',
@@ -20,12 +20,12 @@ export const getAllEnvProfile = async (): Promise<EnvelopeProfile | ErrorRespons
     }
 };
 
-export const fetchEnvProfiles = async (
+export const fetchNoteProfiles = async (
     data: EnvelopeProfile[]
 ): Promise<EnvelopeProfile | ErrorResponse> => {
     try {
         console.log(data);
-        const response = await fetch(ENVELOPE_PROFILE_URL, {
+        const response = await fetch(NOTE_PROFILE_URL, {
             headers: { 'Content-Type': 'application/json' },
             method: 'PATCH',
             body: JSON.stringify(data),
@@ -42,12 +42,12 @@ export const fetchEnvProfiles = async (
     }
 };
 
-export const createEnvProfile = async (
+export const createNoteProfile = async (
     data: EnvelopeProfile
 ): Promise<EnvelopeProfile | ErrorResponse> => {
     try {
         console.log(data);
-        const res = await fetch(ENVELOPE_PROFILE_URL, {
+        const res = await fetch(NOTE_PROFILE_URL, {
             headers: {
                 'Content-Type': 'application/json',
             },
